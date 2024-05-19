@@ -20,23 +20,40 @@ namespace MealPrep.Controllers
         public IActionResult Create()
         {
             return View();
+            //return View(_db.AvaliableMeals.ToList());
+            //return View(nextMeal);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public IActionResult Create([Bind("Id,Title,Description")] Meal meal)
+        public IActionResult Create([Bind("Id,Title,Description,Notes")] MealPlan nextMeal)
         {
             //need to check if model state is valid
             if (ModelState.IsValid)
             {
-                MealPlan nextMeal = new MealPlan(meal);
+                //MealPlan nextMeal = new MealPlan(meal);
                 _db.MyMeals.Add(nextMeal);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return RedirectToAction("Index");
         }
+
+        /*
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            //seed categories
+            modelBuilder.Entity<Recipe>().HasData(new Recipe
+            {
+                Id = 1,
+                Title = "Spaghetti1",
+                Desc = "yay for noodles"
+            });
+        }
+         
+         */
 
     }
 }

@@ -1,5 +1,4 @@
-﻿@model Meal
-
+﻿@model MealPlan
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -7,3 +6,75 @@
 }
 <h2>Create a Meal Plan</h2>
 
+<div class="border container" style="padding:30px;">
+    <form method="post" asp-action="Create">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        
+        <!--
+        
+        <div class="form-group row mb-2">
+            <div class="col-3">
+                <label asp-for="Title"></label>
+            </div>
+            <div class="col-6">
+                <input type="text" asp-for="Title" class="form-control" />
+            </div>
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        -->
+
+
+        
+
+        <div class="form-group row mb-2">
+            <div class="col-3">
+                <label asp-for="Title"></label>
+            </div>
+            <select class="col-6" asp-for="Title">
+                <option value="">Select a meal</option>
+                <!--
+                foreach (var Meal in )
+                {
+                    
+                }
+                -->
+                <option value="Pizza"> Pizza </option>
+                <option value="Grilled Cheese"> Grilled Cheese </option>
+            </select>
+            <span asp-validation-for="Title" class=" text-danger"></span>
+        </div>
+        
+
+        <div class="form-group row mb-2">
+            <div class="col-3">
+                <label asp-for="Description"></label>
+            </div>
+            <div class="col-6">
+                @*
+                Connects view to properties*@
+                <input type="text" asp-for="Description" class="form-control" />
+            </div>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="form-group row mb-2">
+            <div class="col-3">
+                <label asp-for="Notes"></label>
+            </div>
+            <div class="col-6">
+                @*
+                Connects view to properties*@
+                <input type="text" asp-for="Notes" class="form-control" />
+            </div>
+            <span asp-validation-for="Notes" class="text-danger"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-3 offset-3">
+                <input type="submit" value="Add Meal to My Meals" class="btn btn-info form-control" />
+            </div>
+            <div class="col-3">
+                <a asp-controller="AvaliableMeals" asp-action="Index" class="btn btn-secondary form-control">Back to Avaliable Meals</a>
+            </div>
+        </div>
+    </form>
+</div>

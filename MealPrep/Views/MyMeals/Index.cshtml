@@ -13,7 +13,7 @@
                     Description
                 </th>
                 <th>
-                    Amount
+                    Notes
                 </th>
                 <th>
                     <span>Action</span>
@@ -23,21 +23,15 @@
             {
                 <tr>
                     <td>
-                        @if(meal.Meal != null)
-                        {
-                            @meal.Meal.Title
-                        }
+                        
+                        @meal.Title
                         
                     </td>
                     <td>
-                        @if(meal.Meal != null)
-                        {
-                            @meal.Meal.Description
-                        }
-                        
+                        @meal.Description
                     </td>
                     <td>
-                        @meal.Amount
+                        @meal.Notes
                     </td>
                     <td>
                         @*<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
