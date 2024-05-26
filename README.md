@@ -19,3 +19,10 @@ Meal Plans
 * Model
 * Views
 * Controller
+
+A user should be able to:
+* Add a recipe/meal to a meal plan.
+* CRUD operations for all of their meal plans
+* "Finalize" a meal plan by "emailing" it to their email address
+* (extra if there is time) navigate through meals via categories or filters
+* (extra if there is time) log in/log out
