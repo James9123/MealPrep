@@ -20,3 +20,70 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+.addToCart {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+    .thumbnail .caption-full {
+        padding: 9px;
+        color: #333
+    }
+
+.caption-full > img {
+    display: block;
+    width: 60%;
+    height: auto;
+}
+
+.thumbnail > img {
+    display: block;
+    width: 100%;
+    height: 200px;
+}
+
+.caption {
+    height: 130px;
+    overflow: hidden
+}
+
+    .caption h4 {
+        white-space: nowrap
+    }
+
+button {
+    overflow: visible
+}
+
+.pull-right {
+    float: right !important
+}
+
+.carousel-holder {
+    margin-bottom: 3px;
+}
+
+.carousel-control, .item {
+    border-radius: 4px;
+}
+
+.carousel, .item {
+    height: 40%;
+}
+
+    .item img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-height: 40%;
+    }
+
+.slide-image {
+    width: 100%;
+}
