@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MealPlan>
+<h1>My Meals Page</h1>
+
+<div>
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-striped border">
+            <tr class="table-secondary">
+                <th>
+                    Meal
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Notes
+                </th>
+                <th>
+                    <span>Action</span>
+                </th>
+            </tr>
+            @foreach (var meal in Model)
+            {
+                <tr>
+                    <td>
+                        
+                        @meal.Title
+                        
+                    </td>
+                    <td>
+                        @meal.Description
+                    </td>
+                    <td>
+                        @meal.Notes
+                    </td>
+                    <td>
+                        @*<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm text-white">Edit</a>*@
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <p>No meals yet! Go to Avaliable Meals to get some.</p>
+    }
+</div>

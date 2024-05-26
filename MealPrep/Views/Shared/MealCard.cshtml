@@ -1,0 +1,25 @@
+﻿@model Meal
+<div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <h3>@Model.Title</h3>
+        <img src="@Model.ImageUrl" alt="" />
+        <div class="caption">
+            <p>@Model.Description</p>
+        </div>
+        <!--
+        <p class="button">
+            <a class="btn btn-primary" asp-controller="MyMeals" asp-action="AddToMyMeals">Add to My Meals</a>
+        </p>
+        <p class="button">
+            <a method ="post" class="btn btn-primary" type="submit" asp-controller="MyMeals" asp-action="Create">Add to My Meals</a>
+        </p>
+        -->
+        
+        <p class="button">
+            <a class="btn btn-primary" asp-controller="MyMeals" asp-action="Create">Add to My Meals</a>
+        </p>
+        
+    </div>
+</div>
+
+

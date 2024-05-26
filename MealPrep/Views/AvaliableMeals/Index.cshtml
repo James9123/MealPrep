@@ -1,0 +1,8 @@
+﻿@model IEnumerable<Meal>
+<h2>Avaliable Meals</h2>
+
+@foreach (var meal in Model)
+{
+
+    <partial name="MealCard" model="meal" />
+}

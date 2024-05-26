@@ -1,7 +1,7 @@
+
+using MealPrep.Models;
 using Microsoft.EntityFrameworkCore;
-using MealPrep.Models;
-using Microsoft.AspNetCore.Identity;
-using MealPrep.Models;
+
 
 var builder = WebApplication.CreateBuilder(args);
 //var connectionString = builder.Configuration.GetConnectionString("LoginDBContextConnection") ?? throw new InvalidOperationException("Connection string 'LoginDBContextConnection' not found.");
@@ -9,11 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<ApplicationDBContext>(options => options.UseSqlite("Data Source = prello.db"));
 
-//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<LoginDBContext>();
-//builder.Services.AddDbContext<LoginDBContext>(options => options.UseSqlite("Data Source=Users.db"));
-builder.Services.AddRazorPages();
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite("Data Source=MealManager.db"));
+
 
 var app = builder.Build();
 
