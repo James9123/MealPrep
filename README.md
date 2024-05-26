@@ -14,10 +14,3 @@ Going to work on the MyMeals database list and creating the meal model
 
 * (extra if there is time and you're feeling advanced) Navigate through meals via categories or filters
 * (extra if there is time and you're feeling advanced) Log in/Log out
-
-## ToDos
-Meals
-* Content (text and images)
-* Model
-* Views
-* Controller
