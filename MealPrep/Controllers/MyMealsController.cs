@@ -40,6 +40,67 @@ namespace MealPrep.Controllers
             return RedirectToAction("Index");
         }
 
+        //Get
+        public IActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var meal = _db.MyMeals.FirstOrDefault(m => m.Id == id);
+            if (meal == null)
+            {
+                return NotFound();
+            }
+            return View(meal);
+        }
+
+        //Post
+        [HttpPost]
+
+        public IActionResult Edit(int id, [Bind("Id,Meal,Title,Description,Amount,Notes")] MealPlan mealplan)
+        {
+            if (ModelState.IsValid)
+            {
+                if (id != mealplan.Id)
+                {
+                    return NotFound();
+                }
+                _db.MyMeals.Update(mealplan);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(mealplan);
+        }
+
+        public IActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var mealplan = _db.MyMeals.FirstOrDefault(m => m.Id == id);
+            if (mealplan == null)
+            {
+                return NotFound();
+            }
+
+            return View(mealplan);
+        }
+
+        [HttpPost]
+
+        public IActionResult Delete(int id, bool NotUsed)
+        {
+            var mealplan = _db.MyMeals.FirstOrDefault(m => m.Id == id);
+            if (mealplan != null)
+            {
+                _db.MyMeals.Remove(mealplan);
+                _db.SaveChanges();
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
         /*
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

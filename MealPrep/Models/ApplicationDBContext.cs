@@ -1,30 +1,53 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace MealPrep.Models
 {
-	
-    public class ApplicationDBContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
-        public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
+            Database.EnsureCreated();
         }
-        //protected override void 
-        //public DbSet<Project> Projects { get; set; }
-        //public DbSet<Client> Clients { get; set; }
-        public DbSet<Recipe> Recipes { get; set; }
+        
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlite("Filename=./MealManager.sqlite");
+        }
+
+        public DbSet<Meal> AvaliableMeals { get; set; }
+
+        public DbSet<MealPlan> MyMeals { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            //seed categories
-            modelBuilder.Entity<Recipe>().HasData(new Recipe
+
+            modelBuilder.Entity<Meal>().HasData(new Meal
             {
                 Id = 1,
-                Title = ":v)",
-                Desc = ")v:"
+                Title = "Roast Steak",
+                Description = "A very fancy steak",
+                ImageUrl = "./images/9.jpg",
+            });
+            modelBuilder.Entity<Meal>().HasData(new Meal
+            {
+                Id = 2,
+                Title = "Ice Cream",
+                Description = "A delectable dessert",
+                ImageUrl = "./images/7.jpg",
+            });
+            modelBuilder.Entity<Meal>().HasData(new Meal
+            {
+                Id = 3,
+                Title = "Burrito",
+                Description = "Has Everything",
+                ImageUrl = "./images/3.jpg",
             });
         }
 
-    }
-}
 
+        //public DbSet<Meal> MyMeals { get; set; }
+    }
+
+}
