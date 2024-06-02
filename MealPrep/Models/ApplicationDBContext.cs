@@ -37,6 +37,13 @@ namespace MealPrep.Models
                 Description = "A delectable dessert",
                 ImageUrl = "./images/7.jpg",
             });
+            modelBuilder.Entity<Meal>().HasData(new Meal
+            {
+                Id = 3,
+                Title = "Burrito",
+                Description = "Has Everything",
+                ImageUrl = "./images/3.jpg",
+            });
         }
 
 
