@@ -74,7 +74,7 @@ button {
 }
 
 .carousel, .item {
-    height: 40%;
+    height: 400px;
 }
 
     .item img {
@@ -85,5 +85,14 @@ button {
     }
 
 .slide-image {
-    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    overflow: hidden;
 }
